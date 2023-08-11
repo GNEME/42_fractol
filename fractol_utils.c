@@ -62,20 +62,24 @@ void	init_repere_lim(char *str, t_complex *z1_lim, t_complex *z2_lim)
 
 void	ft_message(int is_bonus)
 {
+	ssize_t	erno;
+
 	if (!is_bonus)
 	{
-		write(1, "./fractol Mandelbrot\n", 21);
-		write(1, "./fractol Julia\n", 16);
-		write(1, "./fractol Julia -0.8 0.156\n", 27);
-		write(1, "\treal_part = -0.8, im_part = 0.156\n", 35);
+		erno = write(1, "./fractol Mandelbrot\n", 21);
+		erno = write(1, "./fractol Julia\n", 16);
+		erno = write(1, "./fractol Julia -0.8 0.156\n", 27);
+		erno = write(1, "\treal_part = -0.8, im_part = 0.156\n", 35);
 	}
 	else
 	{
-		write(1, "./fractol_bonus Mandelbrot\n", 27);
-		write(1, "./fractol_bonus Bonus\n", 22);
-		write(1, "./fractol_bonus Julia\n", 22);
-		write(1, "./fractol_bonus Julia -0.8 0.156\n", 33);
-		write(1, "\treal_part = -0.8, im_part = 0.156\n", 35);
+		erno = write(1, "./fractol_bonus Mandelbrot\n", 27);
+		erno = write(1, "./fractol_bonus Bonus\n", 22);
+		erno = write(1, "./fractol_bonus Julia\n", 22);
+		erno = write(1, "./fractol_bonus Julia -0.8 0.156\n", 33);
+		erno = write(1, "\treal_part = -0.8, im_part = 0.156\n", 35);
 	}
+	if (erno == -1)
+		exit(1);
 	exit(0);
 }
